@@ -1,0 +1,86 @@
+cuda: True
+building word index ...
+Entity: 2566908, Relation in KB: 6649, Relation in use: 6650 
+loading data from /home/mist/cloud/Numerical/CWQ/train_simple.json
+skip {13194, 9931, 17485, 10670, 17373, 1113, 21468, 509}
+max_facts:  34098
+converting global to local entity index ...
+avg local entity:  1297.9829539285586
+max local entity:  2001
+preparing question ...
+preparing data ...
+27631 cases in total, 0 cases without query entity, 14953 cases with single query entity, 12678 cases with multiple query entities
+converting global to local entity index ...
+avg local entity:  0.0
+max local entity:  2001
+preparing num data ...
+building word index ...
+Entity: 2566908, Relation in KB: 6649, Relation in use: 6650 
+loading data from /home/mist/cloud/Numerical/CWQ/dev_simple.json
+skip set()
+max_facts:  32496
+converting global to local entity index ...
+avg local entity:  1338.1057118499573
+max local entity:  2001
+preparing question ...
+preparing data ...
+3519 cases in total, 0 cases without query entity, 1794 cases with single query entity, 1725 cases with multiple query entities
+converting global to local entity index ...
+avg local entity:  0.0
+max local entity:  2001
+preparing num data ...
+building word index ...
+Entity: 2566908, Relation in KB: 6649, Relation in use: 6650 
+loading data from /home/mist/cloud/Numerical/CWQ/test_simple.json
+skip set()
+max_facts:  34098
+converting global to local entity index ...
+avg local entity:  1337.5734919286322
+max local entity:  2001
+preparing question ...
+preparing data ...
+3531 cases in total, 0 cases without query entity, 1829 cases with single query entity, 1702 cases with multiple query entities
+converting global to local entity index ...
+avg local entity:  0.0
+max local entity:  2001
+preparing num data ...
+Entity: 2566908, Relation: 6650, Word: 20049
+Entity: 2566908, Relation: 6650, Word: 20049
+Load ckpt from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_num_model.pth
+Load ckpt from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_nsm-h1.ckpt
+evaluation.......
+how many eval samples...... 3519
+avg_hits 0.4737141233304916
+avg_precision 0.3868601460336199
+avg_recall 0.6773128392083657
+avg_f1 0.411275047782015
+{3: 3519}
+comparative type question,  20 cases among 219 cases are right, accuracy: 0.0913, superlative type question,  5 cases among 191 cases are right, accuracy: 0.0262, unknown type question,  1642 cases among 3109 cases are right, accuracy: 0.5281
+evaluation.......
+how many eval samples...... 3531
+avg_hits 0.43415463041631264
+avg_precision 0.353480354949113
+avg_recall 0.6265375795913591
+avg_f1 0.3767027985912821
+{3: 3531}
+comparative type question,  21 cases among 213 cases are right, accuracy: 0.0986, superlative type question,  3 cases among 197 cases are right, accuracy: 0.0152, unknown type question,  1509 cases among 3121 cases are right, accuracy: 0.4835
+Strat Training------------------
+evaluation.......
+how many eval samples...... 3519
+avg_hits 0.5109406081273089
+avg_precision 0.4215924877356162
+avg_recall 0.6746727484595229
+avg_f1 0.45424295881553184
+{3: 3519}
+comparative type question,  93 cases among 219 cases are right, accuracy: 0.4247, superlative type question,  48 cases among 191 cases are right, accuracy: 0.2513, unknown type question,  1657 cases among 3109 cases are right, accuracy: 0.5330
+Best h1, save model as /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_gnn_num_50epoch-h1.ckpt
+Best f1, save model as /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_gnn_num_50epoch-f1.ckpt
+Best superlative-dev-acc, save model as /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_gnn_num_50epoch-superlative-dev-acc.ckpt
+evaluation.......
+how many eval samples...... 3531
+avg_hits 0.4670065137354857
+avg_precision 0.3822363732225745
+avg_recall 0.6184055666724214
+avg_f1 0.41467428636898956
+{3: 3531}
+comparative type question,  79 cases among 213 cases are right, accuracy: 0.3709, superlative type question,  49 cases among 197 cases are right, accuracy: 0.2487, unknown type question,  1521 cases among 3121 cases are right, accuracy: 0.4873

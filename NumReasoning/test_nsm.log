@@ -1,0 +1,62 @@
+2022-11-24 11:11:31,909 - root - INFO - Building Agent.
+Entity: 2566908, Relation: 6650, Word: 20049
+Entity: 2566908, Relation: 6650, Word: 20049
+2022-11-24 11:11:35,409 - root - INFO - Architecture: NsmAgent(
+  (model): GNNModel(
+    (relation_embedding): Embedding(6650, 200)
+    (word_embedding): Embedding(20050, 300, padding_idx=20049)
+    (entity_linear): Linear(in_features=100, out_features=50, bias=True)
+    (relation_linear): Linear(in_features=200, out_features=50, bias=True)
+    (lstm_drop): Dropout(p=0.3, inplace=False)
+    (linear_drop): Dropout(p=0.2, inplace=False)
+    (type_layer): TypeLayer(
+      (linear_drop): Dropout(p=0.2, inplace=False)
+      (kb_self_linear): Linear(in_features=50, out_features=50, bias=True)
+    )
+    (kld_loss): KLDivLoss()
+    (bce_loss_logits): BCEWithLogitsLoss()
+    (mse_loss): MSELoss()
+    (reasoning): GNNReasoning(
+      (lstm_drop): Dropout(p=0.3, inplace=False)
+      (linear_drop): Dropout(p=0.2, inplace=False)
+      (softmax_d1): Softmax(dim=1)
+      (score_func): Linear(in_features=50, out_features=1, bias=True)
+      (rel_linear0): Linear(in_features=50, out_features=50, bias=True)
+      (e2e_linear0): Linear(in_features=100, out_features=50, bias=True)
+      (rel_linear1): Linear(in_features=50, out_features=50, bias=True)
+      (e2e_linear1): Linear(in_features=100, out_features=50, bias=True)
+      (rel_linear2): Linear(in_features=50, out_features=50, bias=True)
+      (e2e_linear2): Linear(in_features=100, out_features=50, bias=True)
+      (rel_linear3): Linear(in_features=50, out_features=50, bias=True)
+      (e2e_linear3): Linear(in_features=100, out_features=50, bias=True)
+    )
+    (instruction): LSTMInstruction(
+      (lstm_drop): Dropout(p=0.3, inplace=False)
+      (linear_drop): Dropout(p=0.2, inplace=False)
+      (word_embedding): Embedding(20050, 300, padding_idx=20049)
+      (node_encoder): LSTM(300, 50, batch_first=True)
+      (cq_linear): Linear(in_features=100, out_features=50, bias=True)
+      (ca_linear): Linear(in_features=50, out_features=1, bias=True)
+      (question_linear0): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear1): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear2): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear3): Linear(in_features=50, out_features=50, bias=True)
+    )
+  )
+)
+2022-11-24 11:11:35,410 - root - INFO - Agent params: 7478802.0
+Loading pre trained model from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_nsm-h1.ckpt
+2022-11-24 11:11:35,779 - root - INFO - Load param of relation_embedding.weight, word_embedding.weight, entity_linear.weight, entity_linear.bias, relation_linear.weight, relation_linear.bias, type_layer.kb_self_linear.weight, type_layer.kb_self_linear.bias, reasoning.score_func.weight, reasoning.score_func.bias, reasoning.rel_linear0.weight, reasoning.rel_linear0.bias, reasoning.e2e_linear0.weight, reasoning.e2e_linear0.bias, reasoning.rel_linear1.weight, reasoning.rel_linear1.bias, reasoning.e2e_linear1.weight, reasoning.e2e_linear1.bias, reasoning.rel_linear2.weight, reasoning.rel_linear2.bias, reasoning.e2e_linear2.weight, reasoning.e2e_linear2.bias, reasoning.rel_linear3.weight, reasoning.rel_linear3.bias, reasoning.e2e_linear3.weight, reasoning.e2e_linear3.bias, instruction.word_embedding.weight, instruction.node_encoder.weight_ih_l0, instruction.node_encoder.weight_hh_l0, instruction.node_encoder.bias_ih_l0, instruction.node_encoder.bias_hh_l0, instruction.cq_linear.weight, instruction.cq_linear.bias, instruction.ca_linear.weight, instruction.ca_linear.bias, instruction.question_linear0.weight, instruction.question_linear0.bias, instruction.question_linear1.weight, instruction.question_linear1.bias, instruction.question_linear2.weight, instruction.question_linear2.bias, instruction.question_linear3.weight, instruction.question_linear3.bias from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_nsm-h1.ckpt.
+  0%|                                                                                                                                                                       | 0/89 [00:00<?, ?it/s]/home/mist/numKBQA/NumReasoning/NSM/Modules/layer_nsm.py:37: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  /home/mist/pytorch/torch/csrc/utils/tensor_new.cpp:210.)
+  fact2head = torch.LongTensor([batch_heads, fact_ids]).to(self.device)
+100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 89/89 [01:05<00:00,  1.35it/s]
+evaluation.......
+how many eval samples...... 3531
+avg_hits 0.46247521948456527
+avg_precision 0.3803126335856297
+avg_recall 0.6161378444889903
+avg_f1 0.41278685491397255
+{3: 3531}
+unknown type question,  1509 cases among 3121 cases are right, accuracy: 0.4835, superlative type question,  48 cases among 197 cases are right, accuracy: 0.2437, comparative type question,  76 cases among 213 cases are right, accuracy: 0.3568
+2022-11-24 11:12:41,850 - root - INFO - TEST F1: 0.4128, H1: 0.4625
+2022-11-24 11:12:41,851 - root - INFO - unknown type question,  1509 cases among 3121 cases are right, accuracy: 0.4835, superlative type question,  48 cases among 197 cases are right, accuracy: 0.2437, comparative type question,  76 cases among 213 cases are right, accuracy: 0.3568

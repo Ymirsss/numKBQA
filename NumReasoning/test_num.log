@@ -1,0 +1,399 @@
+cuda: True
+building word index ...
+Entity: 2566908, Relation in KB: 6649, Relation in use: 6650 
+loading data from /home/mist/cloud/Numerical/CWQ/test_simple.json
+skip set()
+max_facts:  34098
+converting global to local entity index ...
+avg local entity:  1337.5734919286322
+max local entity:  2001
+preparing question ...
+preparing data ...
+3531 cases in total, 0 cases without query entity, 1829 cases with single query entity, 1702 cases with multiple query entities
+converting global to local entity index ...
+avg local entity:  0.0
+max local entity:  2001
+preparing num data ...
+Entity: 2566908, Relation: 6650, Word: 20049
+Entity: 2566908, Relation: 6650, Word: 20049
+Loading pre trained model from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_gnn_num_50epoch-h1.ckpt
+evaluation.......
+how many eval samples...... 3531
+avg_hits 0.4692721608609459
+avg_precision 0.3978872470375869
+avg_recall 0.6031950732294682
+avg_f1 0.4256498145556796
+{3: 3531}
+superlative type question,  56 cases among 197 cases are right, accuracy: 0.2843, unknown type question,  1519 cases among 3121 cases are right, accuracy: 0.4867, comparative type question,  82 cases among 213 cases are right, accuracy: 0.3850
+
+
+
+
+
+$ CUDA_VISIBLE_DEVICES=1 python main_nsm.py --model_name gnn --data_folder /home/mist/cloud/Numerical/CWQ/ --checkpoint_dir /home/mist/cloud/Numerical/checkpoint/CWQ_num/ --entity2id entities_expanded.txt --batch_size 40 --test_batch_size 40 --num_step 4 --entity_dim 50 --word_dim 300 --node_dim 50 --eval_every 1 --experiment_name eval_CWQ_gnn_num_50epoch --eps 0.95 --num_epoch 50 --use_self_loop --lr 1e-4 --q_type seq --word_emb_file word_emb_300d.npy --reason_kb --encode_type --loss_type kl --use_num --use_nsm_num --relation_embedding_file /home/mist/cloud/Numerical/CWQ/cwq_rel_embedding.npy --load_num ../num_pretrain/cwq37_nsm_trainemb.pth --load_experiment CWQ_gnn_num_50epoch-h1.ckpt --is_eval >test_num.log
+2022-11-24 11:37:13,455 - root - INFO - PARAMETER----------
+2022-11-24 11:37:13,455 - root - INFO - BATCH_SIZE=40
+2022-11-24 11:37:13,466 - root - INFO - CACHE_DIR=/home/mist/numKBQA/cached_file/RoBERTa
+2022-11-24 11:37:13,466 - root - INFO - CHAR2ID=chars.txt
+2022-11-24 11:37:13,466 - root - INFO - CHECKPOINT_DIR=/home/mist/cloud/Numerical/checkpoint/CWQ_num/
+2022-11-24 11:37:13,467 - root - INFO - DATA_FOLDER=/home/mist/cloud/Numerical/CWQ/
+2022-11-24 11:37:13,467 - root - INFO - DECAY_RATE=0.0
+2022-11-24 11:37:13,467 - root - INFO - ENCODE_TYPE=True
+2022-11-24 11:37:13,468 - root - INFO - ENCODER_TYPE=lstm
+2022-11-24 11:37:13,468 - root - INFO - ENTITY2ID=entities_expanded.txt
+2022-11-24 11:37:13,468 - root - INFO - ENTITY_DIM=50
+2022-11-24 11:37:13,468 - root - INFO - ENTITY_EMB_FILE=None
+2022-11-24 11:37:13,469 - root - INFO - ENTITY_KGE_FILE=None
+2022-11-24 11:37:13,469 - root - INFO - ENTROPY_WEIGHT=0.0
+2022-11-24 11:37:13,469 - root - INFO - EPS=0.95
+2022-11-24 11:37:13,470 - root - INFO - EVAL_EVERY=1
+2022-11-24 11:37:13,470 - root - INFO - EXPERIMENT_NAME=eval_CWQ_gnn_num_50epoch
+2022-11-24 11:37:13,470 - root - INFO - FACT_DROP=0
+2022-11-24 11:37:13,471 - root - INFO - FACT_SCALE=3
+2022-11-24 11:37:13,471 - root - INFO - FILTER_LABEL=False
+2022-11-24 11:37:13,471 - root - INFO - FILTER_SUB=False
+2022-11-24 11:37:13,472 - root - INFO - GRADIENT_CLIP=1.0
+2022-11-24 11:37:13,472 - root - INFO - IS_EVAL=True
+2022-11-24 11:37:13,472 - root - INFO - KG_DIM=100
+2022-11-24 11:37:13,472 - root - INFO - KGE_DIM=100
+2022-11-24 11:37:13,473 - root - INFO - LABEL_F1=0.5
+2022-11-24 11:37:13,473 - root - INFO - LABEL_FILE=None
+2022-11-24 11:37:13,473 - root - INFO - LABEL_SMOOTH=0.1
+2022-11-24 11:37:13,474 - root - INFO - LAMBDA_AUTO=0.01
+2022-11-24 11:37:13,474 - root - INFO - LAMBDA_LABEL=0.1
+2022-11-24 11:37:13,474 - root - INFO - LINEAR_DROPOUT=0.2
+2022-11-24 11:37:13,474 - root - INFO - LOAD_CKPT_FILE=None
+2022-11-24 11:37:13,475 - root - INFO - LOAD_EXPERIMENT=CWQ_gnn_num_50epoch-h1.ckpt
+2022-11-24 11:37:13,475 - root - INFO - LOAD_NUM=../num_pretrain/cwq37_nsm_trainemb.pth
+2022-11-24 11:37:13,475 - root - INFO - LOG_LEVEL=info
+2022-11-24 11:37:13,476 - root - INFO - LOSS_TYPE=kl
+2022-11-24 11:37:13,476 - root - INFO - LR=0.0001
+2022-11-24 11:37:13,476 - root - INFO - LR_SCHEDULE=False
+2022-11-24 11:37:13,476 - root - INFO - LSTM_DROPOUT=0.3
+2022-11-24 11:37:13,477 - root - INFO - MODE=teacher
+2022-11-24 11:37:13,477 - root - INFO - MODEL_NAME=gnn
+2022-11-24 11:37:13,477 - root - INFO - NAME=webqsp
+2022-11-24 11:37:13,478 - root - INFO - NODE_DIM=50
+2022-11-24 11:37:13,478 - root - INFO - NUM_DROPOUT=0.1
+2022-11-24 11:37:13,478 - root - INFO - NUM_EPOCH=50
+2022-11-24 11:37:13,478 - root - INFO - NUM_LAYER=1
+2022-11-24 11:37:13,479 - root - INFO - NUM_STEP=4
+2022-11-24 11:37:13,479 - root - INFO - NUM_VEC_FUNC=concat
+2022-11-24 11:37:13,479 - root - INFO - PRETRAINED_ENTITY_KGE_FILE=entity_emb_100d.npy
+2022-11-24 11:37:13,479 - root - INFO - Q_TYPE=seq
+2022-11-24 11:37:13,479 - root - INFO - REASON_KB=True
+2022-11-24 11:37:13,480 - root - INFO - REL_WORD_IDS=rel_word_idx.npy
+2022-11-24 11:37:13,480 - root - INFO - RELATION2ID=relations.txt
+2022-11-24 11:37:13,480 - root - INFO - RELATION_EMB_FILE=None
+2022-11-24 11:37:13,480 - root - INFO - RELATION_EMBEDDING_FILE=/home/mist/cloud/Numerical/CWQ/cwq_rel_embedding.npy
+2022-11-24 11:37:13,480 - root - INFO - RELATION_KGE_FILE=None
+2022-11-24 11:37:13,481 - root - INFO - SEED=19960626
+2022-11-24 11:37:13,481 - root - INFO - SHARE_EMBEDDING=False
+2022-11-24 11:37:13,481 - root - INFO - SHARE_ENCODER=False
+2022-11-24 11:37:13,481 - root - INFO - SHARE_INSTRUCTION=False
+2022-11-24 11:37:13,482 - root - INFO - TEST_BATCH_SIZE=40
+2022-11-24 11:37:13,482 - root - INFO - TRAIN_KL=False
+2022-11-24 11:37:13,482 - root - INFO - TREE_SOFT=False
+2022-11-24 11:37:13,482 - root - INFO - USE_CUDA=True
+2022-11-24 11:37:13,482 - root - INFO - USE_INVERSE_RELATION=False
+2022-11-24 11:37:13,483 - root - INFO - USE_LABEL=False
+2022-11-24 11:37:13,483 - root - INFO - USE_NSM_NUM=True
+2022-11-24 11:37:13,483 - root - INFO - USE_NUM=True
+2022-11-24 11:37:13,483 - root - INFO - USE_SELF_LOOP=True
+2022-11-24 11:37:13,484 - root - INFO - WORD2ID=vocab_new.txt
+2022-11-24 11:37:13,484 - root - INFO - WORD_DIM=300
+2022-11-24 11:37:13,484 - root - INFO - WORD_EMB_FILE=word_emb_300d.npy
+2022-11-24 11:37:13,484 - root - INFO - -------------------
+3531it [00:17, 204.30it/s]
+100%|������������������������������������������������������������������������������������������2699it [1:18:39, 105.20it/s]2725it [1:18:39, 42.38s/it] 2748it [1:18:39, 32.71s/it]2785it [1:18:40, 21.45s/it]2785it [1:18:59, 21.45s/it]2806it [1:19:30, 17.30s/it]2842it [1:19:30, 11.28s/it]2880it [1:19:30,  7.39s/it]2915it [1:19:31,  5.09s/it]2950it [1:19:31,  3.52s/it]2984it [1:19:31,  2.47s/it]3016it [1:19:31,  1.76s/it]3048it [1:19:31,  1.25s/it]3087it [1:19:31,  1.20it/s]3121it [1:19:31,  1.71it/s]3157it [1:19:31,  2.46it/s]3191it [1:19:31,  3.48it/s]3229it [1:19:32,  5.09it/s]3270it [1:19:32,  7.54it/s]3307it [1:19:33,  9.47it/s]3344it [1:19:33, 13.36it/s]3377it [1:19:33, 18.16it/s]3418it [1:19:33, 26.48it/s]3456it [1:19:34, 36.87it/s]3494it [1:19:34, 50.67it/s]3531it [1:19:34, 67.31it/s]3531it [1:19:34,  1.35s/it]
+skip set()
+max_facts:  34098
+converting global to local entity index ...
+  0%|          | 0/3531 [00:00<?, ?it/s]  9%|▉         | 333/3531 [00:00<00:00, 3322.84it/s] 19%|█▉        | 681/3531 [00:00<00:00, 3412.88it/s] 29%|██▉       | 1023/3531 [00:00<00:00, 3352.21it/s] 38%|███▊      | 1359/3531 [00:00<00:00, 3303.19it/s] 48%|████▊     | 1690/3531 [00:00<00:00, 3252.79it/s] 57%|█████▋    | 2022/3531 [00:00<00:00, 3271.81it/s] 67%|██████▋   | 2356/3531 [00:00<00:00, 3293.57it/s] 76%|███████▌  | 2686/3531 [00:00<00:00, 3284.15it/s] 85%|████████▌ | 3018/3531 [00:00<00:00, 3291.28it/s] 95%|█████████▍| 3348/3531 [00:01<00:00, 3284.59it/s]100%|██████████| 3531/3531 [00:01<00:00, 3287.75it/s]
+loading file vocab.json from cache at /home/mist/numKBQA/cached_file/RoBERTa/models--roberta-base/snapshots/ff46155979338ff8063cdad90908b498ab91b181/vocab.json
+loading file merges.txt from cache at /home/mist/numKBQA/cached_file/RoBERTa/models--roberta-base/snapshots/ff46155979338ff8063cdad90908b498ab91b181/merges.txt
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at None
+loading file tokenizer_config.json from cache at None
+loading configuration file config.json from cache at /home/mist/numKBQA/cached_file/RoBERTa/models--roberta-base/snapshots/ff46155979338ff8063cdad90908b498ab91b181/config.json
+Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.24.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+avg local entity:  1337.5734919286322
+max local entity:  2001
+preparing question ...
+  0%|          | 0/3531 [00:00<?, ?it/s] 92%|█████████▏| 3240/3531 [00:00<00:00, 32396.94it/s]100%|██████████| 3531/3531 [00:00<00:00, 32373.76it/s]
+preparing data ...
+  0%|          | 0/3531 [00:00<?, ?it/s]  1%|          | 21/3531 [00:00<00:17, 198.22it/s]  1%|          | 41/3531 [00:00<00:17, 194.09it/s]  2%|▏         | 64/3531 [00:00<00:16, 209.13it/s]  2%|▏         | 87/3531 [00:00<00:16, 211.72it/s]  3%|▎         | 111/3531 [00:00<00:15, 217.20it/s]  4%|▍         | 133/3531 [00:00<00:16, 206.56it/s]  4%|▍         | 155/3531 [00:00<00:16, 208.46it/s]  5%|▍         | 176/3531 [00:00<00:16, 202.83it/s]  6%|▌         | 199/3531 [00:00<00:16, 207.61it/s]  6%|▌         | 220/3531 [00:01<00:16, 206.74it/s]  7%|▋         | 241/3531 [00:01<00:15, 206.08it/s]  7%|▋         | 262/3531 [00:01<00:16, 201.81it/s]  8%|▊         | 283/3531 [00:01<00:16, 194.20it/s]  9%|▊         | 304/3531 [00:01<00:16, 196.28it/s]  9%|▉         | 324/3531 [00:01<00:16, 193.09it/s] 10%|▉         | 346/3531 [00:01<00:15, 200.28it/s] 10%|█         | 367/3531 [00:01<00:15, 200.84it/s] 11%|█         | 388/3531 [00:01<00:15, 202.48it/s] 12%|█▏        | 409/3531 [00:02<00:15, 198.37it/s] 12%|█▏        | 433/3531 [00:02<00:14, 209.94it/s] 13%|█▎        | 455/3531 [00:02<00:14, 207.34it/s] 14%|█▎        | 478/3531 [00:02<00:14, 207.85it/s] 14%|█▍        | 499/3531 [00:02<00:14, 208.21it/s] 15%|█▍        | 520/3531 [00:02<00:14, 201.66it/s] 15%|█▌        | 541/3531 [00:02<00:14, 201.61it/s] 16%|█▌        | 564/3531 [00:02<00:14, 204.83it/s] 17%|█▋        | 585/3531 [00:02<00:14, 201.37it/s] 17%|█▋        | 606/3531 [00:02<00:14, 195.29it/s] 18%|█▊        | 626/3531 [00:03<00:15, 189.93it/s] 18%|█▊        | 646/3531 [00:03<00:15, 190.14it/s] 19%|█▉        | 666/3531 [00:03<00:15, 184.71it/s] 19%|█▉        | 685/3531 [00:03<00:15, 185.13it/s] 20%|█▉        | 704/3531 [00:03<00:15, 181.68it/s] 20%|██        | 723/3531 [00:03<00:16, 169.84it/s] 21%|██        | 741/3531 [00:03<00:16, 167.47it/s] 21%|██▏       | 758/3531 [00:03<00:17, 162.41it/s] 22%|██▏       | 775/3531 [00:03<00:16, 163.98it/s] 22%|██▏       | 794/3531 [00:04<00:16, 169.65it/s] 23%|██▎       | 812/3531 [00:04<00:16, 167.20it/s] 23%|██▎       | 829/3531 [00:04<00:16, 164.89it/s] 24%|██▍       | 850/3531 [00:04<00:15, 172.26it/s] 25%|██▍       | 870/3531 [00:04<00:14, 180.06it/s] 25%|██▌       | 890/3531 [00:04<00:14, 184.59it/s] 26%|██▌       | 909/3531 [00:04<00:15, 173.66it/s] 26%|██▋       | 928/3531 [00:04<00:14, 174.22it/s] 27%|██▋       | 946/3531 [00:04<00:14, 173.44it/s] 27%|██▋       | 966/3531 [00:05<00:14, 179.29it/s] 28%|██▊       | 985/3531 [00:05<00:14, 174.22it/s] 29%|██▊       | 1008/3531 [00:05<00:13, 189.77it/s] 29%|██▉       | 1028/3531 [00:05<00:13, 188.84it/s] 30%|██▉       | 1047/3531 [00:05<00:13, 179.26it/s] 30%|███       | 1066/3531 [00:05<00:14, 174.04it/s] 31%|███       | 1085/3531 [00:05<00:13, 175.86it/s] 31%|███       | 1103/3531 [00:05<00:13, 174.95it/s] 32%|███▏      | 1121/3531 [00:05<00:13, 175.59it/s] 32%|███▏      | 1140/3531 [00:06<00:13, 175.68it/s] 33%|███▎      | 1160/3531 [00:06<00:13, 182.24it/s] 33%|███▎      | 1181/3531 [00:06<00:12, 188.87it/s] 34%|███▍      | 1202/3531 [00:06<00:12, 192.06it/s] 35%|███▍      | 1222/3531 [00:06<00:12, 189.97it/s] 35%|███▌      | 1242/3531 [00:06<00:12, 184.80it/s] 36%|███▌      | 1261/3531 [00:06<00:12, 184.64it/s] 36%|███▋      | 1280/3531 [00:06<00:12, 180.53it/s] 37%|███▋      | 1299/3531 [00:06<00:12, 177.59it/s] 37%|███▋      | 1317/3531 [00:07<00:13, 168.53it/s] 38%|███▊      | 1336/3531 [00:07<00:12, 174.39it/s] 38%|███▊      | 1355/3531 [00:07<00:12, 177.79it/s] 39%|███▉      | 1373/3531 [00:07<00:12, 172.79it/s] 39%|███▉      | 1393/3531 [00:07<00:11, 180.09it/s] 40%|███▉      | 1412/3531 [00:07<00:11, 182.50it/s] 41%|████      | 1431/3531 [00:07<00:12, 174.20it/s] 41%|████      | 1450/3531 [00:07<00:11, 176.54it/s] 42%|████▏     | 1468/3531 [00:07<00:12, 170.28it/s] 42%|████▏     | 1486/3531 [00:07<00:12, 168.39it/s] 43%|████▎     | 1504/3531 [00:08<00:11, 171.15it/s] 43%|████▎     | 1522/3531 [00:08<00:12, 159.31it/s] 44%|████▎     | 1539/3531 [00:08<00:12, 156.76it/s] 44%|████▍     | 1556/3531 [00:08<00:12, 159.92it/s] 45%|████▍     | 1573/3531 [00:08<00:12, 158.86it/s] 45%|████▌     | 1592/3531 [00:08<00:11, 165.00it/s] 46%|████▌     | 1611/3531 [00:08<00:11, 169.70it/s] 46%|████▌     | 1631/3531 [00:08<00:10, 175.96it/s] 47%|████▋     | 1649/3531 [00:08<00:10, 174.18it/s] 47%|████▋     | 1668/3531 [00:09<00:10, 174.03it/s] 48%|████▊     | 1688/3531 [00:09<00:10, 178.15it/s] 48%|████▊     | 1706/3531 [00:09<00:10, 175.06it/s] 49%|████▉     | 1724/3531 [00:09<00:10, 176.07it/s] 49%|████▉     | 1742/3531 [00:09<00:10, 163.42it/s] 50%|████▉     | 1761/3531 [00:09<00:10, 170.54it/s] 50%|█████     | 1782/3531 [00:09<00:09, 179.94it/s] 51%|█████     | 1801/3531 [00:09<00:09, 179.95it/s] 52%|█████▏    | 1820/3531 [00:09<00:09, 179.26it/s] 52%|█████▏    | 1839/3531 [00:10<00:09, 174.54it/s] 53%|█████▎    | 1858/3531 [00:10<00:09, 178.30it/s] 53%|█████▎    | 1876/3531 [00:10<00:09, 177.98it/s] 54%|█████▎    | 1894/3531 [00:10<00:09, 176.98it/s] 54%|█████▍    | 1912/3531 [00:10<00:09, 172.95it/s] 55%|█████▍    | 1933/3531 [00:10<00:08, 182.44it/s] 55%|█████▌    | 1953/3531 [00:10<00:08, 184.14it/s] 56%|█████▌    | 1972/3531 [00:10<00:08, 185.66it/s] 56%|█████▋    | 1992/3531 [00:10<00:08, 189.54it/s] 57%|█████▋    | 2011/3531 [00:10<00:08, 189.31it/s] 57%|█████▋    | 2030/3531 [00:11<00:08, 178.71it/s] 58%|█████▊    | 2048/3531 [00:11<00:08, 176.47it/s] 59%|█████▊    | 2066/3531 [00:11<00:08, 172.85it/s] 59%|█████▉    | 2089/3531 [00:11<00:07, 188.66it/s] 60%|█████▉    | 2108/3531 [00:11<00:07, 188.87it/s] 60%|██████    | 2127/3531 [00:11<00:07, 180.43it/s] 61%|██████    | 2146/3531 [00:11<00:08, 171.98it/s] 61%|██████▏   | 2164/3531 [00:11<00:07, 171.90it/s] 62%|██████▏   | 2185/3531 [00:11<00:07, 180.24it/s] 62%|██████▏   | 2204/3531 [00:12<00:07, 175.07it/s] 63%|██████▎   | 2222/3531 [00:12<00:07, 163.85it/s] 63%|██████▎   | 2242/3531 [00:12<00:07, 171.13it/s] 64%|██████▍   | 2262/3531 [00:12<00:07, 177.70it/s] 65%|██████▍   | 2280/3531 [00:12<00:07, 176.60it/s] 65%|██████▌   | 2299/3531 [00:12<00:06, 178.93it/s] 66%|██████▌   | 2322/3531 [00:12<00:06, 192.82it/s] 66%|██████▋   | 2342/3531 [00:12<00:06, 183.29it/s] 67%|██████▋   | 2364/3531 [00:12<00:06, 191.54it/s] 68%|██████▊   | 2384/3531 [00:13<00:06, 177.21it/s] 68%|██████▊   | 2403/3531 [00:13<00:06, 171.61it/s] 69%|██████▊   | 2421/3531 [00:13<00:06, 172.79it/s] 69%|██████▉   | 2439/3531 [00:13<00:06, 164.77it/s] 70%|██████▉   | 2458/3531 [00:13<00:06, 170.52it/s] 70%|███████   | 2476/3531 [00:13<00:06, 171.60it/s] 71%|███████   | 2496/3531 [00:13<00:05, 179.44it/s] 71%|███████   | 2515/3531 [00:13<00:05, 176.99it/s] 72%|███████▏  | 2533/3531 [00:13<00:05, 177.22it/s] 72%|███████▏  | 2556/3531 [00:14<00:05, 190.33it/s] 73%|███████▎  | 2576/3531 [00:14<00:05, 180.66it/s] 73%|███████▎  | 2595/3531 [00:14<00:05, 181.02it/s] 74%|███████▍  | 2614/3531 [00:14<00:05, 176.13it/s] 75%|███████▍  | 2632/3531 [00:14<00:05, 168.75it/s] 75%|███████▌  | 2651/3531 [00:14<00:05, 173.42it/s] 76%|███████▌  | 2669/3531 [00:14<00:05, 171.22it/s] 76%|███████▌  | 2687/3531 [00:14<00:05, 168.48it/s] 77%|███████▋  | 2704/3531 [00:14<00:04, 168.25it/s] 77%|███████▋  | 2722/3531 [00:15<00:04, 171.58it/s] 78%|███████▊  | 2740/3531 [00:15<00:04, 167.50it/s] 78%|███████▊  | 2757/3531 [00:15<00:04, 165.16it/s] 79%|███████▊  | 2778/3531 [00:15<00:04, 177.11it/s] 79%|███████▉  | 2796/3531 [00:15<00:04, 174.60it/s] 80%|███████▉  | 2816/3531 [00:15<00:04, 178.72it/s] 80%|████████  | 2841/3531 [00:15<00:03, 198.61it/s] 81%|████████  | 2861/3531 [00:15<00:03, 193.80it/s] 82%|████████▏ | 2883/3531 [00:15<00:03, 200.49it/s] 82%|████████▏ | 2904/3531 [00:15<00:03, 201.09it/s] 83%|████████▎ | 2925/3531 [00:16<00:03, 186.57it/s] 83%|████████▎ | 2945/3531 [00:16<00:03, 189.16it/s] 84%|████████▍ | 2965/3531 [00:16<00:03, 175.09it/s] 84%|████████▍ | 2983/3531 [00:16<00:03, 166.75it/s] 85%|████████▌ | 3003/3531 [00:16<00:03, 173.35it/s] 86%|████████▌ | 3021/3531 [00:16<00:03, 159.25it/s] 86%|████████▌ | 3038/3531 [00:16<00:03, 161.70it/s] 87%|████████▋ | 3058/3531 [00:16<00:02, 171.15it/s] 87%|████████▋ | 3077/3531 [00:17<00:02, 175.12it/s] 88%|████████▊ | 3096/3531 [00:17<00:02, 177.31it/s] 88%|████████▊ | 3114/3531 [00:17<00:02, 168.19it/s]            (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (6): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (7): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (8): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (9): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (10): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (11): RobertaLayer(
+              (attention): RobertaAttention(
+                (self): RobertaSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+                (output): RobertaSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                )
+              )
+              (intermediate): RobertaIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): RobertaOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (pooler): RobertaPooler(
+          (dense): Linear(in_features=768, out_features=768, bias=True)
+          (activation): Tanh()
+        )
+      )
+      (hidden2ent): Linear(in_features=768, out_features=50, bias=True)
+      (number_embedding): Embedding(2566910, 50, padding_idx=2566908)
+      (number_relation_embedding): Embedding(6716, 50)
+      (_gcn_input_proj): Linear(in_features=100, out_features=50, bias=True)
+      (_gcn): GCN(
+        (_node_weight_fc): Linear(in_features=50, out_features=1, bias=True)
+        (_self_node_fc): Linear(in_features=50, out_features=50, bias=True)
+        (_dd_node_fc_left): Linear(in_features=50, out_features=50, bias=False)
+      )
+      (_proj_ln): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+      (_gcn_enc): ResidualGRU(
+        (enc_layer): GRU(50, 25, num_layers=2, batch_first=True, dropout=0.1, bidirectional=True)
+        (enc_ln): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+      )
+      (sep_embedding): Embedding(1, 50)
+      (transformer_encoder): TransformerEncoder(
+        (layers): ModuleList(
+          (0): TransformerEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=50, out_features=50, bias=True)
+            )
+            (linear1): Linear(in_features=50, out_features=2048, bias=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+            (linear2): Linear(in_features=2048, out_features=50, bias=True)
+            (norm1): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+            (norm2): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.1, inplace=False)
+          )
+          (1): TransformerEncoderLayer(
+            (self_attn): MultiheadAttention(
+              (out_proj): NonDynamicallyQuantizableLinear(in_features=50, out_features=50, bias=True)
+            )
+            (linear1): Linear(in_features=50, out_features=2048, bias=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+            (linear2): Linear(in_features=2048, out_features=50, bias=True)
+            (norm1): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+            (norm2): LayerNorm((50,), eps=1e-05, elementwise_affine=True)
+            (dropout1): Dropout(p=0.1, inplace=False)
+            (dropout2): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+      (reduce_emb_linear): Linear(in_features=150, out_features=50, bias=True)
+      (kb_head_linear): Linear(in_features=50, out_features=50, bias=True)
+      (kb_tail_linear): Linear(in_features=50, out_features=50, bias=True)
+      (kb_self_linear): Linear(in_features=50, out_features=50, bias=True)
+      (rel_linear_num): Linear(in_features=50, out_features=50, bias=True)
+      (e2e_linear_num): Linear(in_features=100, out_features=50, bias=True)
+      (relu): ReLU()
+      (score_func_num): Linear(in_features=100, out_features=1, bias=True)
+    )
+    (instruction): LSTMInstruction(
+      (lstm_drop): Dropout(p=0.3, inplace=False)
+      (linear_drop): Dropout(p=0.2, inplace=False)
+      (word_embedding): Embedding(20050, 300, padding_idx=20049)
+      (node_encoder): LSTM(300, 50, batch_first=True)
+      (cq_linear): Linear(in_features=100, out_features=50, bias=True)
+      (ca_linear): Linear(in_features=50, out_features=1, bias=True)
+      (question_linear0): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear1): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear2): Linear(in_features=50, out_features=50, bias=True)
+      (question_linear3): Linear(in_features=50, out_features=50, bias=True)
+    )
+  )
+)
+2022-11-24 11:38:02,466 - root - INFO - Agent params: 261335182.0
+2022-11-24 11:38:14,140 - root - INFO - Load param of relation_embedding.weight, word_embedding.weight, entity_linear.weight, entity_linear.bias, relation_linear.weight, relation_linear.bias, type_layer.kb_self_linear.weight, type_layer.kb_self_linear.bias, reasoning.score_func.weight, reasoning.score_func.bias, reasoning.rel_linear0.weight, reasoning.rel_linear0.bias, reasoning.e2e_linear0.weight, reasoning.e2e_linear0.bias, reasoning.rel_linear1.weight, reasoning.rel_linear1.bias, reasoning.e2e_linear1.weight, reasoning.e2e_linear1.bias, reasoning.rel_linear2.weight, reasoning.rel_linear2.bias, reasoning.e2e_linear2.weight, reasoning.e2e_linear2.bias, reasoning.rel_linear3.weight, reasoning.rel_linear3.bias, reasoning.e2e_linear3.weight, reasoning.e2e_linear3.bias, reasoning.roberta_model.embeddings.position_ids, reasoning.roberta_model.embeddings.word_embeddings.weight, reasoning.roberta_model.embeddings.position_embeddings.weight, reasoning.roberta_model.embeddings.token_type_embeddings.weight, reasoning.roberta_model.embeddings.LayerNorm.weight, reasoning.roberta_model.embeddings.LayerNorm.bias, reasoning.roberta_model.encoder.layer.0.attention.self.query.weight, reasoning.roberta_model.encoder.layer.0.attention.self.query.bias, reasoning.roberta_model.encoder.layer.0.attention.self.key.weight, reasoning.roberta_model.encoder.layer.0.attention.self.key.bias, reasoning.roberta_model.encoder.layer.0.attention.self.value.weight, reasoning.roberta_model.encoder.layer.0.attention.self.value.bias, reasoning.roberta_model.encoder.layer.0.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.0.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.0.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.0.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.0.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.0.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.0.output.dense.weight, reasoning.roberta_model.encoder.layer.0.output.dense.bias, reasoning.roberta_model.encoder.layer.0.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.0.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.1.attention.self.query.weight, reasoning.roberta_model.encoder.layer.1.attention.self.query.bias, reasoning.roberta_model.encoder.layer.1.attention.self.key.weight, reasoning.roberta_model.encoder.layer.1.attention.self.key.bias, reasoning.roberta_model.encoder.layer.1.attention.self.value.weight, reasoning.roberta_model.encoder.layer.1.attention.self.value.bias, reasoning.roberta_model.encoder.layer.1.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.1.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.1.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.1.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.1.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.1.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.1.output.dense.weight, reasoning.roberta_model.encoder.layer.1.output.dense.bias, reasoning.roberta_model.encoder.layer.1.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.1.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.2.attention.self.query.weight, reasoning.roberta_model.encoder.layer.2.attention.self.query.bias, reasoning.roberta_model.encoder.layer.2.attention.self.key.weight, reasoning.roberta_model.encoder.layer.2.attention.self.key.bias, reasoning.roberta_model.encoder.layer.2.attention.self.value.weight, reasoning.roberta_model.encoder.layer.2.attention.self.value.bias, reasoning.roberta_model.encoder.layer.2.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.2.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.2.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.2.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.2.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.2.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.2.output.dense.weight, reasoning.roberta_model.encoder.layer.2.output.dense.bias, reasoning.roberta_model.encoder.layer.2.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.2.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.3.attention.self.query.weight, reasoning.roberta_model.encoder.layer.3.attention.self.query.bias, reasoning.roberta_model.encoder.layer.3.attention.self.key.weight, reasoning.roberta_model.encoder.layer.3.attention.self.key.bias, reasoning.roberta_model.encoder.layer.3.attention.self.value.weight, reasoning.roberta_model.encoder.layer.3.attention.self.value.bias, reasoning.roberta_model.encoder.layer.3.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.3.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.3.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.3.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.3.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.3.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.3.output.dense.weight, reasoning.roberta_model.encoder.layer.3.output.dense.bias, reasoning.roberta_model.encoder.layer.3.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.3.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.4.attention.self.query.weight, reasoning.roberta_model.encoder.layer.4.attention.self.query.bias, reasoning.roberta_model.encoder.layer.4.attention.self.key.weight, reasoning.roberta_model.encoder.layer.4.attention.self.key.bias, reasoning.roberta_model.encoder.layer.4.attention.self.value.weight, reasoning.roberta_model.encoder.layer.4.attention.self.value.bias, reasoning.roberta_model.encoder.layer.4.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.4.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.4.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.4.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.4.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.4.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.4.output.dense.weight, reasoning.roberta_model.encoder.layer.4.output.dense.bias, reasoning.roberta_model.encoder.layer.4.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.4.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.5.attention.self.query.weight, reasoning.roberta_model.encoder.layer.5.attention.self.query.bias, reasoning.roberta_model.encoder.layer.5.attention.self.key.weight, reasoning.roberta_model.encoder.layer.5.attention.self.key.bias, reasoning.roberta_model.encoder.layer.5.attention.self.value.weight, reasoning.roberta_model.encoder.layer.5.attention.self.value.bias, reasoning.roberta_model.encoder.layer.5.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.5.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.5.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.5.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.5.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.5.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.5.output.dense.weight, reasoning.roberta_model.encoder.layer.5.output.dense.bias, reasoning.roberta_model.encoder.layer.5.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.5.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.6.attention.self.query.weight, reasoning.roberta_model.encoder.layer.6.attention.self.query.bias, reasoning.roberta_model.encoder.layer.6.attention.self.key.weight, reasoning.roberta_model.encoder.layer.6.attention.self.key.bias, reasoning.roberta_model.encoder.layer.6.attention.self.value.weight, reasoning.roberta_model.encoder.layer.6.attention.self.value.bias, reasoning.roberta_model.encoder.layer.6.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.6.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.6.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.6.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.6.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.6.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.6.output.dense.weight, reasoning.roberta_model.encoder.layer.6.output.dense.bias, reasoning.roberta_model.encoder.layer.6.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.6.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.7.attention.self.query.weight, reasoning.roberta_model.encoder.layer.7.attention.self.query.bias, reasoning.roberta_model.encoder.layer.7.attention.self.key.weight, reasoning.roberta_model.encoder.layer.7.attention.self.key.bias, reasoning.roberta_model.encoder.layer.7.attention.self.value.weight, reasoning.roberta_model.encoder.layer.7.attention.self.value.bias, reasoning.roberta_model.encoder.layer.7.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.7.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.7.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.7.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.7.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.7.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.7.output.dense.weight, reasoning.roberta_model.encoder.layer.7.output.dense.bias, reasoning.roberta_model.encoder.layer.7.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.7.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.8.attention.self.query.weight, reasoning.roberta_model.encoder.layer.8.attention.self.query.bias, reasoning.roberta_model.encoder.layer.8.attention.self.key.weight, reasoning.roberta_model.encoder.layer.8.attention.self.key.bias, reasoning.roberta_model.encoder.layer.8.attention.self.value.weight, reasoning.roberta_model.encoder.layer.8.attention.self.value.bias, reasoning.roberta_model.encoder.layer.8.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.8.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.8.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.8.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.8.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.8.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.8.output.dense.weight, reasoning.roberta_model.encoder.layer.8.output.dense.bias, reasoning.roberta_model.encoder.layer.8.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.8.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.9.attention.self.query.weight, reasoning.roberta_model.encoder.layer.9.attention.self.query.bias, reasoning.roberta_model.encoder.layer.9.attention.self.key.weight, reasoning.roberta_model.encoder.layer.9.attention.self.key.bias, reasoning.roberta_model.encoder.layer.9.attention.self.value.weight, reasoning.roberta_model.encoder.layer.9.attention.self.value.bias, reasoning.roberta_model.encoder.layer.9.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.9.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.9.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.9.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.9.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.9.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.9.output.dense.weight, reasoning.roberta_model.encoder.layer.9.output.dense.bias, reasoning.roberta_model.encoder.layer.9.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.9.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.10.attention.self.query.weight, reasoning.roberta_model.encoder.layer.10.attention.self.query.bias, reasoning.roberta_model.encoder.layer.10.attention.self.key.weight, reasoning.roberta_model.encoder.layer.10.attention.self.key.bias, reasoning.roberta_model.encoder.layer.10.attention.self.value.weight, reasoning.roberta_model.encoder.layer.10.attention.self.value.bias, reasoning.roberta_model.encoder.layer.10.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.10.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.10.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.10.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.10.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.10.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.10.output.dense.weight, reasoning.roberta_model.encoder.layer.10.output.dense.bias, reasoning.roberta_model.encoder.layer.10.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.10.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.11.attention.self.query.weight, reasoning.roberta_model.encoder.layer.11.attention.self.query.bias, reasoning.roberta_model.encoder.layer.11.attention.self.key.weight, reasoning.roberta_model.encoder.layer.11.attention.self.key.bias, reasoning.roberta_model.encoder.layer.11.attention.self.value.weight, reasoning.roberta_model.encoder.layer.11.attention.self.value.bias, reasoning.roberta_model.encoder.layer.11.attention.output.dense.weight, reasoning.roberta_model.encoder.layer.11.attention.output.dense.bias, reasoning.roberta_model.encoder.layer.11.attention.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.11.attention.output.LayerNorm.bias, reasoning.roberta_model.encoder.layer.11.intermediate.dense.weight, reasoning.roberta_model.encoder.layer.11.intermediate.dense.bias, reasoning.roberta_model.encoder.layer.11.output.dense.weight, reasoning.roberta_model.encoder.layer.11.output.dense.bias, reasoning.roberta_model.encoder.layer.11.output.LayerNorm.weight, reasoning.roberta_model.encoder.layer.11.output.LayerNorm.bias, reasoning.roberta_model.pooler.dense.weight, reasoning.roberta_model.pooler.dense.bias, reasoning.hidden2ent.weight, reasoning.hidden2ent.bias, reasoning.number_embedding.weight, reasoning.number_relation_embedding.weight, reasoning._gcn_input_proj.weight, reasoning._gcn_input_proj.bias, reasoning._gcn._node_weight_fc.weight, reasoning._gcn._node_weight_fc.bias, reasoning._gcn._self_node_fc.weight, reasoning._gcn._self_node_fc.bias, reasoning._gcn._dd_node_fc_left.weight, reasoning._proj_ln.weight, reasoning._proj_ln.bias, reasoning._gcn_enc.enc_layer.weight_ih_l0, reasoning._gcn_enc.enc_layer.weight_hh_l0, reasoning._gcn_enc.enc_layer.bias_ih_l0, reasoning._gcn_enc.enc_layer.bias_hh_l0, reasoning._gcn_enc.enc_layer.weight_ih_l0_reverse, reasoning._gcn_enc.enc_layer.weight_hh_l0_reverse, reasoning._gcn_enc.enc_layer.bias_ih_l0_reverse, reasoning._gcn_enc.enc_layer.bias_hh_l0_reverse, reasoning._gcn_enc.enc_layer.weight_ih_l1, reasoning._gcn_enc.enc_layer.weight_hh_l1, reasoning._gcn_enc.enc_layer.bias_ih_l1, reasoning._gcn_enc.enc_layer.bias_hh_l1, reasoning._gcn_enc.enc_layer.weight_ih_l1_reverse, reasoning._gcn_enc.enc_layer.weight_hh_l1_reverse, reasoning._gcn_enc.enc_layer.bias_ih_l1_reverse, reasoning._gcn_enc.enc_layer.bias_hh_l1_reverse, reasoning._gcn_enc.enc_ln.weight, reasoning._gcn_enc.enc_ln.bias, reasoning.sep_embedding.weight, reasoning.transformer_encoder.layers.0.self_attn.in_proj_weight, reasoning.transformer_encoder.layers.0.self_attn.in_proj_bias, reasoning.transformer_encoder.layers.0.self_attn.out_proj.weight, reasoning.transformer_encoder.layers.0.self_attn.out_proj.bias, reasoning.transformer_encoder.layers.0.linear1.weight, reasoning.transformer_encoder.layers.0.linear1.bias, reasoning.transformer_encoder.layers.0.linear2.weight, reasoning.transformer_encoder.layers.0.linear2.bias, reasoning.transformer_encoder.layers.0.norm1.weight, reasoning.transformer_encoder.layers.0.norm1.bias, reasoning.transformer_encoder.layers.0.norm2.weight, reasoning.transformer_encoder.layers.0.norm2.bias, reasoning.transformer_encoder.layers.1.self_attn.in_proj_weight, reasoning.transformer_encoder.layers.1.self_attn.in_proj_bias, reasoning.transformer_encoder.layers.1.self_attn.out_proj.weight, reasoning.transformer_encoder.layers.1.self_attn.out_proj.bias, reasoning.transformer_encoder.layers.1.linear1.weight, reasoning.transformer_encoder.layers.1.linear1.bias, reasoning.transformer_encoder.layers.1.linear2.weight, reasoning.transformer_encoder.layers.1.linear2.bias, reasoning.transformer_encoder.layers.1.norm1.weight, reasoning.transformer_encoder.layers.1.norm1.bias, reasoning.transformer_encoder.layers.1.norm2.weight, reasoning.transformer_encoder.layers.1.norm2.bias, reasoning.reduce_emb_linear.weight, reasoning.reduce_emb_linear.bias, reasoning.kb_head_linear.weight, reasoning.kb_head_linear.bias, reasoning.kb_tail_linear.weight, reasoning.kb_tail_linear.bias, reasoning.kb_self_linear.weight, reasoning.kb_self_linear.bias, reasoning.rel_linear_num.weight, reasoning.rel_linear_num.bias, reasoning.e2e_linear_num.weight, reasoning.e2e_linear_num.bias, reasoning.score_func_num.weight, reasoning.score_func_num.bias, instruction.word_embedding.weight, instruction.node_encoder.weight_ih_l0, instruction.node_encoder.weight_hh_l0, instruction.node_encoder.bias_ih_l0, instruction.node_encoder.bias_hh_l0, instruction.cq_linear.weight, instruction.cq_linear.bias, instruction.ca_linear.weight, instruction.ca_linear.bias, instruction.question_linear0.weight, instruction.question_linear0.bias, instruction.question_linear1.weight, instruction.question_linear1.bias, instruction.question_linear2.weight, instruction.question_linear2.bias, instruction.question_linear3.weight, instruction.question_linear3.bias from /home/mist/cloud/Numerical/checkpoint/CWQ_num/CWQ_gnn_num_50epoch-h1.ckpt.
+  0%|                                                                                                                                                                       | 0/89 [00:00<?, ?it/s]/home/mist/numKBQA/NumReasoning/NSM/Modules/layer_nsm.py:37: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  /home/mist/pytorch/torch/csrc/utils/tensor_new.cpp:210.)
+  fact2head = torch.LongTensor([batch_heads, fact_ids]).to(self.device)
+/usr/local/lib/python3.9/dist-packages/torch/nn/functional.py:5279: UserWarning: Byte tensor for key_padding_mask in nn.MultiheadAttention is deprecated. Use bool tensor instead.
+  warnings.warn("Byte tensor for key_padding_mask in nn.MultiheadAttention is deprecated. Use bool tensor instead.")
+100%|����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������| 89/89 [01:10<00:00,  1.26it/s]
+2022-11-24 11:39:25,061 - root - INFO - TEST F1: 0.4256, H1: 0.4693
+2022-11-24 11:39:25,061 - root - INFO - superlative type question,  56 cases among 197 cases are right, accuracy: 0.2843, unknown type question,  1519 cases among 3121 cases are right, accuracy: 0.4867, comparative type question,  82 cases among 213 cases are right, accuracy: 0.3850
+
